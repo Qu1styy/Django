@@ -1,7 +1,12 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Title: {{ book.title }}</h1>
+  <h1>Title: {{ book.title }}
+      {% if user.is_staff %}
+        <a href="{% url 'book-update' book.pk %}"> (Edit)</a>
+        <a href="{% url 'book-delete' book.pk %}"> (Delete)
+      {% endif %}
+  </h1>
 
   <p><strong>Author:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p> <!-- author detail link not yet defined -->
   <p><strong>Summary:</strong> {{ book.summary }}</p>

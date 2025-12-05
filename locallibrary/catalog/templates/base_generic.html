@@ -20,7 +20,7 @@
         <div class="col-sm-2">
           {% block sidebar %}
             <ul class="sidebar-nav">
-              <li><a href="{% url 'index' %}">Home</a></li><br>
+              <li><a href="{% url 'index' %}"><h3>Home</h3></a></li>
               <li><a href="{% url 'books' %}">All books</a></li>
               <li><a href="{% url 'author' %}">All author</a></li><br>
                 {% if user.is_authenticated %}
