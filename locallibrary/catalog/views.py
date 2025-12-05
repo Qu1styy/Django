@@ -64,12 +64,15 @@ class BookListView(generic.ListView):
 
 class BookDetailView(generic.DetailView):
     model = Book
+    paginate_by = 10
 
 class AuthorListView(generic.ListView):
     model = Author
+    paginate_by = 2
 
 class AuthorDetailView(generic.DetailView):
     model = Author
+    paginate_by = 10
 
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     """
@@ -135,8 +138,15 @@ class AuthorDelete(DeleteView):
     model = Author
     success_url = reverse_lazy('author')
 
-
 class BookCreate(CreateView):
     model = Book
     fields = '__all__'
     initial={'date_of_death':'12/10/2016',}
+
+class BookUpdate(UpdateView):
+    model = Book
+    fields = ['title','author','summary','isbn', 'genre']
+
+class BookDelete(DeleteView):
+    model = Book
+    success_url = reverse_lazy('author')

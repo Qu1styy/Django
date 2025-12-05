@@ -11,4 +11,10 @@
       <p>No books available</p>
     {% endfor %}
     </div>
+
+    <p>
+      <a href="{% url 'author-delete' author.pk %}">
+          Delete author
+      </a>
+    </p>
 {% endblock %}
